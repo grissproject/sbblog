@@ -1,0 +1,1 @@
+Very simple and beautiful blog made with Meteor
