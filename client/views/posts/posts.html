@@ -1,0 +1,9 @@
+<template name="posts">
+  {{#each posts}}
+    <div class="col-md-12 post">
+      <div class="title">{{title}}</div>
+      <div class="info">{{createdAt}}</div>
+      <div class="content">{{content}}</div>
+    </div>
+  {{/each}}
+</template>

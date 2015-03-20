@@ -1,4 +1,4 @@
 Router.route('/', function () {
-  this.render('home');
+  this.render('posts');
   SEO.set({ title: 'Home -' + Meteor.App.NAME });
 });

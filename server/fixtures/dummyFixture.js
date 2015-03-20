@@ -2,6 +2,5 @@
 Fixtures = typeof Fixtures !== "undefined" ? Fixtures : {};
 
 Fixtures.dummyFixture = [
-  { 'foo' : 'bar', 'another' : 'value' },
-  { 'foo' : 'bar2', 'another' : 'value2' }
+  { 'title' : 'Hello World!', 'content' : 'From meteor...', 'createdAt': new Date() }
 ];
