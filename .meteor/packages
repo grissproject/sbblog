@@ -12,12 +12,11 @@ aldeed:collection2
 iron:router
 raix:handlebar-helpers
 matteodem:easy-security
-audit-argument-checks
+# audit-argument-checks
 fastclick
 zimme:iron-router-active
 manuelschoebel:ms-seo
 browser-policy
-useraccounts:semantic-ui
 natestrauser:animate-css
 dburles:collection-helpers
 meteorhacks:fast-render
@@ -25,3 +24,6 @@ meteorhacks:fast-render
 semantic:ui-css
 coffeescript
 mizzao:bootstrap-3
+aldeed:autoform
+ian:accounts-ui-bootstrap-3
+accounts-facebook
