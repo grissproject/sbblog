@@ -2,4 +2,7 @@ Router.route '/', ->
   @render 'posts'
 
 Router.route 'posts/new', ->
-  @render 'new-post'
+  if !Meteor.userId()
+    @render 'posts'
+  else
+    @render 'new-post'

@@ -1,5 +1,6 @@
 root = exports ? this
 
+root.Authors = new Mongo.Collection 'authors'
 root.Posts = new Mongo.Collection 'Posts'
 
 root.Posts.attachSchema(
@@ -10,15 +11,33 @@ root.Posts.attachSchema(
     content:
       type: String
 
+    author:
+      type: String
+
     createdAt:
       type: Date
   )
 )
 
+root.Posts.helpers(
+)
+
 root.Posts.allow(
-  insert : -> true
+  insert : -> 
+    if !Meteor.userId()
+      false
+    else
+      true
 
-  update : -> true
+  update : ->
+    if !Meteor.userId()
+      false
+    else
+      true
 
-  remove : -> true
+  remove : ->
+    if !Meteor.userId()
+      false
+    else
+      true
 )
