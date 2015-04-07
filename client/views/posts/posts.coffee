@@ -21,7 +21,7 @@ Template['new-post'].events
 
 Template.new_comment.events
   'submit .new_comment': (e) ->
-    e.preventDefault
+    e.preventDefault()
     Comments.insert
       'title': e.target.title.value
       'content': e.target.content.value
