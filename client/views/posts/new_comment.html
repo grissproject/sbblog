@@ -1,0 +1,21 @@
+<template name="new_comment">
+  <form class="new_comment col-md-6">
+    <div class="col-md-6 form-group">
+      <label>Title</label>
+      <input type="text" name="title" class="form-control">
+    </div>
+    <div class="col-md-6 form-group">
+      <label>Nombre</label>
+      <input type="text" name="author" class="form-control">
+    </div>
+    <div class="col-md-10 form-group">
+      <label>Content</label>
+      <textarea name="content" class="form-control"></textarea>
+    </div>
+    <input type="hidden" name="post_id" value="{{post_id}}">
+    <div class="col-md-2">
+      <label></label>
+      <button class="btn btn-primary">Comment</button>
+    </div>
+  </form>
+</template>

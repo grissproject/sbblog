@@ -1,0 +1,18 @@
+<template name="post">
+  <div class="col-md-12 post">
+    <div class="title">{{post.title}}</div>
+    <div class="info">{{post.authorName}} - {{post.createdAt}}</div>
+    <div class="content">{{post.content}}</div>
+
+    <div class="comments">
+      {{#each comments}}
+        <div class="col-md-12 comment">
+          <div class="title">{{title}} <strong>@ {{author}}</strong> - {{createdAt}}</div>
+          <div class="commentContent">{{content}}</div>
+        </div>
+      {{/each}}
+
+      {{> new_comment post_id=post._id}}
+    </div>
+  </div>
+</template>

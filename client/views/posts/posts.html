@@ -1,8 +1,8 @@
 <template name="posts">
   {{#each posts}}
     <div class="col-md-12 post">
-      <div class="title">{{title}}</div>
-      <div class="info">{{authorName}} - {{createdAt}}</div>
+      <div class="title"><a href="posts/{{_id}}">{{title}}</a></div>
+      <div class="info">{{authorName}} - {{createdAt}} | {{commentsCount}} Comments</div>
       <div class="content">{{content}}</div>
     </div>
   {{/each}}

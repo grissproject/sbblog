@@ -19,8 +19,13 @@ root.Posts.attachSchema(
   )
 )
 
-root.Posts.helpers(
-)
+Posts.helpers
+  'authorName': -> 
+    author = Meteor.users.findOne(@author)
+    return author.username if author.username
+    return author.profile.name if author.profile.name
+  'commentsCount': ->
+    Comments.find({ post_id: @_id }).count()
 
 root.Posts.allow(
   insert : -> 

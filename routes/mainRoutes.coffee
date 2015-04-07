@@ -6,3 +6,8 @@ Router.route 'posts/new', ->
     @render 'posts'
   else
     @render 'new-post'
+
+Router.route 'posts/:_id', ->
+  post = Posts.findOne _id: @params._id
+  @render 'post', data: -> { post: post }
+
