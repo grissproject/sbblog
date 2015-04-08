@@ -7,17 +7,25 @@ Template['posts'].helpers
 
 Template.post.helpers
   'comments': -> Comments.find({post_id: @post._id})
+  'userIsAuthor': -> Meteor.userId() && Meteor.userId() == @post.author
 
 # Template['posts'].events
 
-Template['new-post'].events
-  'submit .new-post': (e) ->
+Template.post.events
+  'click .edit': (e) -> $('.edit_form').show()
+  'click .remove': (e) -> Posts.remove @post._id
+
+Template['post_form'].events
+  'submit .post_form': (e) ->
     e.preventDefault()
-    Posts.insert
-      'title': e.target.title.value
-      'content': e.target.content.value
-      'author': Meteor.userId()
-      'createdAt': new Date()
+    if e.target._id.value
+      Posts.update e.target._id.value, {$set: {title: e.target.title.value, content: e.target.content.value}}
+    else
+      Posts.insert
+        'title': e.target.title.value
+        'content': e.target.content.value
+        'author': Meteor.userId()
+        'createdAt': new Date()
 
 Template.new_comment.events
   'submit .new_comment': (e) ->

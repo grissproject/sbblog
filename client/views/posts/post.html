@@ -1,18 +1,30 @@
 <template name="post">
-  <div class="col-md-12 post">
-    <div class="title">{{post.title}}</div>
-    <div class="info">{{post.authorName}} - {{post.createdAt}}</div>
-    <div class="content">{{post.content}}</div>
+  <div class="post">
+    <div class="col-md-8">
+      <div class="title">
+        {{post.title}}
+        {{#if userIsAuthor}}
+          <span class="actions">
+            <span class="edit">Edit</span> | 
+            <span class="remove">Remove</span>
+          </span>
+        {{/if}}
+      </div>
+      <div class="info">{{post.authorName}} - {{post.createdAt}}</div>
+      <div class="content">{{post.content}}</div>
 
-    <div class="comments">
-      {{#each comments}}
-        <div class="col-md-12 comment">
-          <div class="title">{{title}} <strong>@ {{author}}</strong> - {{createdAt}}</div>
-          <div class="commentContent">{{content}}</div>
-        </div>
-      {{/each}}
+      <div class="comments">
+        {{#each comments}}
+          <div class="col-md-12 comment">
+            <div class="title">{{title}} <strong>@ {{author}}</strong> - {{createdAt}}</div>
+            <div class="commentContent">{{content}}</div>
+          </div>
+        {{/each}}
 
-      {{> new_comment post_id=post._id}}
+        {{> new_comment post_id=post._id}}
+      </div>
     </div>
+
+    <div class="edit_form col-md-4">{{>post_form post}}</div>
   </div>
 </template>
